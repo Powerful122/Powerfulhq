@@ -1,868 +1,413 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>powerful — Practical education on collateralized borrowing & DeFi risk</title>
+  <meta name="description" content="Clear, practical education on collateralized borrowing and risk management in DeFi. No hype.">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    <title>Powerful | Understanding the Forces That Shape the World</title>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: #f7f7f5;
+      color: #1a1a1a;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
-    <meta name="description"
-        content="Powerful is an independent publication covering wealth, finance, power, crime, technology, politics, religion, conflict, and human behavior." />
+    .container {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 48px 24px 64px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
 
-    <link rel="icon" href="logo_with_black_BG-removebg-preview.png" type="image/png">
+    /* Logo + Name */
+    .brand {
+      text-align: center;
+      margin-bottom: 36px;
+    }
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    .logo {
+      width: 72px;
+      height: 72px;
+      border-radius: 12px;
+      margin-bottom: 16px;
+      object-fit: cover;
+    }
 
-    <script src="https://unpkg.com/lucide@latest"></script>
+    .site-name {
+      font-size: 1.75rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #111;
+    }
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    .tagline {
+      margin-top: 8px;
+      font-size: 1.05rem;
+      color: #555;
+      font-weight: 400;
+    }
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    /* Main message */
+    .message {
+      text-align: center;
+      margin-bottom: 36px;
+    }
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    .message p {
+      font-size: 1.15rem;
+      color: #333;
+      max-width: 480px;
+      margin: 0 auto;
+    }
 
-    <style>
-        body{
-            font-family:Inter,sans-serif;
-            background:#fafafa;
-        }
+    /* Primary button */
+    .cta {
+      text-align: center;
+      margin-bottom: 44px;
+    }
 
-        .glass{
-            backdrop-filter:blur(16px);
-            background:rgba(255,255,255,.75);
-        }
+    .btn {
+      display: inline-block;
+      background: #1a1a1a;
+      color: #fff;
+      text-decoration: none;
+      padding: 14px 36px;
+      border-radius: 8px;
+      font-size: 1.05rem;
+      font-weight: 500;
+      transition: background 0.2s ease, transform 0.15s ease;
+    }
 
-        .hero-bg{
-            background:
-            radial-gradient(circle at top right,#dbeafe 0%,transparent 35%),
-            radial-gradient(circle at bottom left,#f3f4f6 0%,transparent 40%);
-        }
+    .btn:hover {
+      background: #333;
+      transform: translateY(-1px);
+    }
 
-        .hover-card{
-            transition:.3s;
-        }
+    /* Email signup */
+    .signup {
+      background: #fff;
+      border: 1px solid #e5e5e5;
+      border-radius: 12px;
+      padding: 28px 24px;
+      text-align: center;
+      margin-bottom: 36px;
+    }
 
-        .hover-card:hover{
-            transform:translateY(-6px);
-        }
-    </style>
+    .signup h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #111;
+    }
 
+    .signup p {
+      font-size: 0.95rem;
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    .signup-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 360px;
+      margin: 0 auto;
+    }
+
+    .signup-form input[type="email"] {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .signup-form input[type="email"]:focus {
+      border-color: #1a1a1a;
+    }
+
+    .signup-form button {
+      background: #1a1a1a;
+      color: #fff;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .signup-form button:hover {
+      background: #333;
+    }
+
+    .signup-note {
+      margin-top: 12px;
+      font-size: 0.8rem;
+      color: #888;
+    }
+
+    .signup-note a {
+      color: #555;
+    }
+
+    /* Footer links */
+    .links {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .links a,
+    .links button {
+      color: #555;
+      text-decoration: none;
+      font-size: 0.95rem;
+      margin: 0 12px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      transition: color 0.2s;
+    }
+
+    .links a:hover,
+    .links button:hover {
+      color: #111;
+    }
+
+    /* Disclaimer */
+    .disclaimer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #999;
+      max-width: 420px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+
+    /* About Overlay / Modal */
+    .overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .overlay.active {
+      display: flex;
+    }
+
+    .modal {
+      background: #fff;
+      border-radius: 14px;
+      max-width: 480px;
+      width: 100%;
+      padding: 32px 28px;
+      position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .modal h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: #111;
+    }
+
+    .modal p {
+      font-size: 0.98rem;
+      color: #333;
+      margin-bottom: 14px;
+    }
+
+    .modal p:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      color: #888;
+      cursor: pointer;
+      line-height: 1;
+      padding: 4px 8px;
+    }
+
+    .close-btn:hover {
+      color: #111;
+    }
+
+    /* Mobile tweaks */
+    @media (max-width: 480px) {
+      .container {
+        padding: 36px 20px 48px;
+      }
+
+      .site-name {
+        font-size: 1.5rem;
+      }
+
+      .message p {
+        font-size: 1.05rem;
+      }
+
+      .links a,
+      .links button {
+        display: inline-block;
+        margin: 6px 10px;
+      }
+
+      .modal {
+        padding: 28px 22px;
+      }
+    }
+  </style>
 </head>
-
-<body class="text-slate-900">
-
-<!-- ===========================
-Navigation
-============================ -->
-
-<nav class="fixed top-0 w-full z-50 glass border-b border-gray-200">
-
-<div class="max-w-7xl mx-auto px-6">
-
-<div class="flex items-center justify-between h-20">
-
-<!-- Logo -->
-
-<a href="#" class="flex items-center gap-3">
-
-<img
-src="logo_with_black_BG-removebg-preview.png"
-class="h-12 w-auto">
-
-<div>
-
-<h1 class="font-bold text-2xl tracking-tight">
-Powerful
-</h1>
-
-<p class="text-xs uppercase tracking-[0.25em] text-gray-500">
-Independent Publication
-</p>
-
-</div>
-
-</a>
-
-<!-- Desktop Menu -->
-
-<div class="hidden md:flex items-center gap-8">
-
-<a href="/categories" class="hover:text-black text-gray-600">
-Categories
-</a>
-
-<a href="#publications" class="hover:text-black text-gray-600">
-Publications
-</a>
-
-<a href="/about" class="hover:text-black text-gray-600">
-About
-</a>
-
-<a href="#newsletter" class="hover:text-black text-gray-600">
-Newsletter
-</a>
-
-</div>
-
-<!-- Button -->
-
-<a href="#publications"
-class="hidden md:flex px-5 py-3 rounded-lg bg-black text-white font-semibold">
-
-Start Reading
-
-</a>
-
-<!-- Mobile -->
-
-<button id="menuBtn" class="md:hidden">
-
-<i data-lucide="menu"></i>
-
-</button>
-
-</div>
-
-</div>
-
-</nav>
-
-<!-- ===========================
-Hero
-============================ -->
-
-<section class="hero-bg pt-40 pb-24">
-
-<div class="max-w-7xl mx-auto px-6">
-
-<div class="max-w-4xl">
-
-<div class="inline-flex items-center rounded-full border border-gray-300 px-4 py-2 text-sm mb-8">
-
-<i data-lucide="book-open" class="w-4 h-4 mr-2"></i>
-
-Research • Analysis • Publications
-
-</div>
-
-<h1 class="text-5xl md:text-7xl font-extrabold leading-tight">
-
-Understand the
-
-<span class="block">
-
-Forces That Shape
-
-</span>
-
-<span class="block">
-
-the World
-
-</span>
-
-</h1>
-
-<p class="mt-8 text-xl text-gray-600 max-w-3xl leading-9">
-
-Powerful is an independent publication exploring wealth, finance,
-power, crime, technology, politics, religion, conflict, and human
-behavior through research, investigative writing, and long-form analysis.
-
-</p>
-
-<div class="mt-10 flex flex-wrap gap-4">
-
-<a href="#publications"
-class="px-7 py-4 bg-black text-white rounded-lg font-semibold">
-
-Latest Publications
-
-</a>
-
-<a href="#categories"
-class="px-7 py-4 border rounded-lg font-semibold">
-
-Browse Categories
-
-</a>
-
-</div>
-
-<!-- Quick Stats -->
-
-<div class="mt-16 grid md:grid-cols-3 gap-5">
-
-<div class="hover-card bg-white rounded-xl p-6 shadow-sm">
-
-<h3 class="font-bold text-2xl">
-8+
-</h3>
-
-<p class="text-gray-600 mt-2">
-
-Core Research Categories
-
-</p>
-
-</div>
-
-<div class="hover-card bg-white rounded-xl p-6 shadow-sm">
-
-<h3 class="font-bold text-2xl">
-Long-form
-</h3>
-
-<p class="text-gray-600 mt-2">
-
-Essays, investigations & analysis
-
-</p>
-
-</div>
-
-<div class="hover-card bg-white rounded-xl p-6 shadow-sm">
-
-<h3 class="font-bold text-2xl">
-
-Independent
-
-</h3>
-
-<p class="text-gray-600 mt-2">
-
-Research driven by evidence
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<script>
-
-lucide.createIcons();
-
-</script>
-
-
-
-    <!-- ==========================================
-CATEGORIES
-=========================================== -->
-
-<section id="categories" class="py-24 bg-white">
-
-<div class="max-w-7xl mx-auto px-6">
-
-<div class="text-center mb-16">
-
-<p class="uppercase tracking-[0.35em] text-sm text-gray-500 mb-3">
-Explore
-</p>
-
-<h2 class="text-4xl md:text-5xl font-bold">
-Research Categories
-</h2>
-
-<p class="text-gray-600 mt-5 max-w-3xl mx-auto text-lg">
-
-Every publication belongs to a carefully researched category,
-making it easy to explore the forces shaping our world.
-
-</p>
-
-</div>
-
-<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-
-<!-- Wealth -->
-
-<a href="/wealth" class="group bg-gray-50 rounded-2xl p-8 border hover:border-black transition">
-
-<i data-lucide="landmark" class="w-9 h-9 mb-6"></i>
-
-<h3 class="font-bold text-xl mb-3">
-Wealth & Finance
-</h3>
-
-<p class="text-gray-600 leading-7">
-
-Markets, investing, crypto, DeFi,
-economic systems and financial risk.
-
-</p>
-
-</a>
-
-<!-- Power -->
-
-<a href="/power" class="group bg-gray-50 rounded-2xl p-8 border hover:border-black transition">
-
-<i data-lucide="shield" class="w-9 h-9 mb-6"></i>
-
-<h3 class="font-bold text-xl mb-3">
-
-Power & Influence
-
-</h3>
-
-<p class="text-gray-600 leading-7">
-
-Leadership, institutions,
-strategy and decision-making.
-
-</p>
-
-</a>
-
-<!-- Crime -->
-
-<a href="/crime" class="group bg-gray-50 rounded-2xl p-8 border hover:border-black transition">
-
-<i data-lucide="fingerprint" class="w-9 h-9 mb-6"></i>
-
-<h3 class="font-bold text-xl mb-3">
-
-Crime & Security
-
-</h3>
-
-<p class="text-gray-600 leading-7">
-
-Fraud, corruption,
-cybersecurity and investigative analysis.
-
-</p>
-
-</a>
-
-<!-- Technology -->
-
-<a href="/technology" class="group bg-gray-50 rounded-2xl p-8 border hover:border-black transition">
-
-<i data-lucide="cpu" class="w-9 h-9 mb-6"></i>
-
-<h3 class="font-bold text-xl mb-3">
-
-Technology
-
-</h3>
-
-<p class="text-gray-600 leading-7">
-
-Artificial intelligence,
-privacy, surveillance and innovation.
-
-</p>
-
-</a>
-
-<!-- Politics -->
-
-<a href="/politics" class="group bg-gray-50 rounded-2xl p-8 border hover:border-black transition">
-
-<i data-lucide="building-2" class="w-9 h-9 mb-6"></i>
-
-<h3 class="font-bold text-xl mb-3">
-
-Politics
-
-</h3>
-
-<p class="text-gray-600 leading-7">
-
-Governments,
-elections, diplomacy and geopolitics.
-
-</p>
-
-</a>
-
-<!-- Religion -->
-
-<a href="/religion" class="group bg-gray-50 rounded-2xl p-8 border hover:border-black transition">
-
-<i data-lucide="book-open" class="w-9 h-9 mb-6"></i>
-
-<h3 class="font-bold text-xl mb-3">
-
-Religion & Philosophy
-
-</h3>
-
-<p class="text-gray-600 leading-7">
-
-Belief systems,
-history, ethics and philosophy.
-
-</p>
-
-</a>
-
-<!-- War -->
-
-<a href="/war" class="group bg-gray-50 rounded-2xl p-8 border hover:border-black transition">
-
-<i data-lucide="crosshair" class="w-9 h-9 mb-6"></i>
-
-<h3 class="font-bold text-xl mb-3">
-
-War & Defense
-
-</h3>
-
-<p class="text-gray-600 leading-7">
-
-Military history,
-intelligence and global conflict.
-
-</p>
-
-</a>
-
-<!-- Psychology -->
-
-<a href="/psychology" class="group bg-gray-50 rounded-2xl p-8 border hover:border-black transition">
-
-<i data-lucide="brain" class="w-9 h-9 mb-6"></i>
-
-<h3 class="font-bold text-xl mb-3">
-
-Human Nature
-
-</h3>
-
-<p class="text-gray-600 leading-7">
-
-Psychology,
-behavior, incentives and persuasion.
-
-</p>
-
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-
-
-<!-- ==========================================
-FEATURED PUBLICATIONS
-=========================================== -->
-
-<section id="publications" class="py-24 bg-gray-50">
-
-<div class="max-w-7xl mx-auto px-6">
-
-<div class="flex justify-between items-end mb-14">
-
-<div>
-
-<p class="uppercase tracking-[0.35em] text-sm text-gray-500">
-
-Publications
-
-</p>
-
-<h2 class="text-4xl font-bold mt-3">
-
-Featured Research
-
-</h2>
-
-</div>
-
-<a href="/publications"
-class="font-semibold hover:underline">
-
-View all →
-
-</a>
-
-</div>
-
-<div class="grid lg:grid-cols-3 gap-8">
-
-<!-- Card 1 -->
-
-<article class="bg-white rounded-2xl overflow-hidden shadow-sm">
-
-<img
-src="images/article1.jpg"
-class="h-56 w-full object-cover">
-
-<div class="p-8">
-
-<span class="text-sm uppercase tracking-wider text-gray-500">
-
-Wealth & Finance
-
-</span>
-
-<h3 class="text-2xl font-bold mt-3 mb-4">
-
-Why Financial Bubbles Keep Repeating
-
-</h3>
-
-<p class="text-gray-600 leading-7">
-
-Understanding speculation,
-liquidity and crowd psychology.
-
-</p>
-
-<div class="mt-6 text-sm text-gray-500">
-
-12 min read
-
-</div>
-
-</div>
-
-</article>
-
-<!-- Card 2 -->
-
-<article class="bg-white rounded-2xl overflow-hidden shadow-sm">
-
-<img
-src="images/article2.jpg"
-class="h-56 w-full object-cover">
-
-<div class="p-8">
-
-<span class="text-sm uppercase tracking-wider text-gray-500">
-
-Politics
-
-</span>
-
-<h3 class="text-2xl font-bold mt-3 mb-4">
-
-Power, Influence and Modern States
-
-</h3>
-
-<p class="text-gray-600 leading-7">
-
-How institutions shape
-economic and political outcomes.
-
-</p>
-
-<div class="mt-6 text-sm text-gray-500">
-
-18 min read
-
-</div>
-
-</div>
-
-</article>
-
-<!-- Card 3 -->
-
-<article class="bg-white rounded-2xl overflow-hidden shadow-sm">
-
-<img
-src="images/article3.jpg"
-class="h-56 w-full object-cover">
-
-<div class="p-8">
-
-<span class="text-sm uppercase tracking-wider text-gray-500">
-
-Technology
-
-</span>
-
-<h3 class="text-2xl font-bold mt-3 mb-4">
-
-Artificial Intelligence and the Future of Power
-
-</h3>
-
-<p class="text-gray-600 leading-7">
-
-How AI is changing
-economics, warfare and governance.
-
-</p>
-
-<div class="mt-6 text-sm text-gray-500">
-
-15 min read
-
-</div>
-
-</div>
-
-</article>
-
-</div>
-
-</div>
-
-</section>
-
-<script>
-lucide.createIcons();
-    </script>
-
-
-
-
-
-    <!-- ==========================================
-ABOUT
-========================================== -->
-
-<section id="about" class="py-24 bg-white">
-
-<div class="max-w-5xl mx-auto px-6 text-center">
-
-<p class="uppercase tracking-[0.35em] text-sm text-gray-500 mb-4">
-
-About
-
-</p>
-
-<h2 class="text-4xl md:text-5xl font-bold mb-8">
-
-Understanding the Hidden Forces
-Behind Human Civilization
-
-</h2>
-
-<p class="text-lg text-gray-600 leading-9 max-w-3xl mx-auto">
-
-Powerful is an independent publication dedicated to understanding
-the systems that shape wealth, influence, technology, conflict,
-belief, institutions, and human behavior.
-
-Every publication is built on research, critical thinking,
-and long-form analysis designed to help readers understand
-not only what happens—but why it happens.
-
-</p>
-
-</div>
-
-</section>
-
-
-
-
-
-<!-- ==========================================
-NEWSLETTER
-========================================== -->
-
-<section id="newsletter" class="py-24 bg-gray-100">
-
-<div class="max-w-3xl mx-auto px-6 text-center">
-
-<p class="uppercase tracking-[0.35em] text-sm text-gray-500 mb-4">
-
-Newsletter
-
-</p>
-
-<h2 class="text-4xl font-bold mb-6">
-
-Stay Ahead of the Headlines
-
-</h2>
-
-<p class="text-lg text-gray-600 leading-8 mb-10">
-
-Receive essays, investigations,
-and research delivered directly to your inbox.
-
-</p>
-
-<form class="flex flex-col md:flex-row gap-4">
-
-<input
-type="email"
-placeholder="Email address"
-class="flex-1 rounded-xl border border-gray-300 px-5 py-4 focus:outline-none focus:ring-2 focus:ring-black">
-
-<button
-class="bg-black text-white px-8 py-4 rounded-xl font-semibold hover:bg-gray-900 transition">
-
-Subscribe
-
-</button>
-
-</form>
-
-</div>
-
-</section>
-
-
-
-
-
-<!-- ==========================================
-FOOTER
-========================================== -->
-
-<footer class="bg-black text-white py-20">
-
-<div class="max-w-7xl mx-auto px-6">
-
-<div class="grid md:grid-cols-4 gap-12">
-
-<div>
-
-<h3 class="text-2xl font-bold mb-4">
-
-Powerful
-
-</h3>
-
-<p class="text-gray-400 leading-7">
-
-Independent research covering
-wealth, power, technology,
-politics, crime,
-religion, conflict,
-and human behavior.
-
-</p>
-
-</div>
-
-<div>
-
-<h4 class="font-semibold mb-4">
-
-Categories
-
-</h4>
-
-<ul class="space-y-2 text-gray-400">
-
-<li><a href="/wealth">Wealth & Finance</a></li>
-<li><a href="/power">Power & Influence</a></li>
-<li><a href="/crime">Crime & Intelligence</a></li>
-<li><a href="/technology">Technology</a></li>
-<li><a href="/politics">Politics</a></li>
-<li><a href="/religion">Religion</a></li>
-<li><a href="/war">War & Defense</a></li>
-<li><a href="/psychology">Human Nature</a></li>
-
-</ul>
-
-</div>
-
-<div>
-
-<h4 class="font-semibold mb-4">
-
-Publication
-
-</h4>
-
-<ul class="space-y-2 text-gray-400">
-
-<li><a href="/publications">Latest Articles</a></li>
-<li><a href="/research">Research</a></li>
-<li><a href="/featured">Featured</a></li>
-<li><a href="/archive">Archive</a></li>
-
-</ul>
-
-</div>
-
-<div>
-
-<h4 class="font-semibold mb-4">
-
-Connect
-
-</h4>
-
-<ul class="space-y-2 text-gray-400">
-
-<li><a href="https://x.com/powerful_ng">X (Twitter)</a></li>
-<li><a href="/contact">Contact</a></li>
-<li><a href="/privacy">Privacy Policy</a></li>
-
-</ul>
-
-</div>
-
-</div>
-
-<hr class="border-gray-800 my-12">
-
-<div class="flex flex-col md:flex-row justify-between items-center gap-4 text-gray-500 text-sm">
-
-<p>
-
-© 2026 Powerful. All rights reserved.
-
-</p>
-
-<p>
-
-Understanding the forces that shape the world.
-
-</p>
-
-</div>
-
-</div>
-
-</footer>
-
-
-
-
-
-<!-- ==========================================
-MOBILE MENU
-========================================== -->
-
-<script>
-
-const menuBtn = document.getElementById("menuBtn");
-
-const menu = document.getElementById("mobileMenu");
-
-if(menuBtn){
-
-menuBtn.addEventListener("click",()=>{
-
-menu.classList.toggle("hidden");
-
-});
-
-}
-
-lucide.createIcons();
-
-</script>
-
+<body>
+  <div class="container">
+
+    <!-- 1. Logo + Name + Tagline -->
+    <div class="brand">
+      <img 
+        src="https://pbs.twimg.com/profile_images/2096288067921301510/wCwGTrHa_400x400.jpg" 
+        alt="powerful logo" 
+        class="logo"
+      >
+      <div class="site-name">powerful</div>
+      <div class="tagline">Practical education on collateralized borrowing &amp; DeFi risk</div>
+    </div>
+
+    <!-- 2. Clear message -->
+    <div class="message">
+      <p>
+        Clear, no-hype guidance for people who use (or want to use) 
+        DeFi lending protocols more safely and effectively.
+      </p>
+    </div>
+
+    <!-- 3. Big button to blog -->
+    <div class="cta">
+      <a href="https://blog.powerful.ng" class="btn">
+        Read the Blog →
+      </a>
+    </div>
+
+    <!-- 4. Simple email signup (Google Form) -->
+    <div class="signup">
+      <h2>Get the notes</h2>
+      <p>Occasional practical updates on collateralized borrowing and risk. No spam.</p>
+      
+      <!-- 
+        SETUP INSTRUCTIONS:
+        1. Create a Google Form with one "Email" short-answer question.
+        2. Click Send → link icon → copy the form URL.
+        3. Replace YOUR_FORM_ID_HERE and the entry.XXXXX name attribute below.
+      -->
+      <form 
+        class="signup-form" 
+        action="https://docs.google.com/forms/d/e/YOUR_FORM_ID_HERE/formResponse" 
+        method="POST" 
+        target="_blank"
+      >
+        <input 
+          type="email" 
+          name="entry.YOUR_ENTRY_ID" 
+          placeholder="you@email.com" 
+          required
+        >
+        <button type="submit">Subscribe</button>
+      </form>
+      <p class="signup-note">
+        Or <a href="https://docs.google.com/forms/d/e/YOUR_FORM_ID_HERE/viewform" target="_blank">open the form directly</a>
+      </p>
+    </div>
+
+    <!-- 5. Links -->
+    <div class="links">
+      <button type="button" onclick="openAbout()">About</button>
+      <a href="https://blog.powerful.ng">Blog</a>
+      <a href="https://x.com/powerful_ng" target="_blank" rel="noopener">X</a>
+      <a href="https://t.me/powerful_ng" target="_blank" rel="noopener">Telegram</a>
+    </div>
+
+    <!-- 6. Disclaimer -->
+    <div class="disclaimer">
+      Nothing on this site is financial advice. 
+      All content is for educational purposes only. 
+      Do your own research and manage your own risk.
+    </div>
+
+  </div>
+
+  <!-- About Overlay -->
+  <div class="overlay" id="aboutOverlay" onclick="closeAbout(event)">
+    <div class="modal" onclick="event.stopPropagation()">
+      <button class="close-btn" onclick="closeAbout()">&times;</button>
+      <h2>About</h2>
+      <p>
+        Powerful exists to make collateralized borrowing in DeFi clearer and safer.
+      </p>
+      <p>
+        Most content in this space is either too shallow or filled with hype. 
+        We focus on practical education — how lending protocols actually work, 
+        how to think about collateral, liquidation risk, looping, and position management 
+        without unnecessary complexity.
+      </p>
+      <p>
+        The goal is simple: help people who already use (or want to use) 
+        DeFi lending protocols do so with better understanding and better risk awareness.
+      </p>
+      <p>
+        No promises of returns. No financial advice. Just clear, usable knowledge.
+      </p>
+    </div>
+  </div>
+
+  <script>
+    function openAbout() {
+      document.getElementById('aboutOverlay').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeAbout(event) {
+      if (!event || event.target.id === 'aboutOverlay' || event.target.classList.contains('close-btn')) {
+        document.getElementById('aboutOverlay').classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeAbout({ target: { id: 'aboutOverlay' } });
+      }
+    });
+  </script>
 </body>
-
 </html>
